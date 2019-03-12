@@ -11,14 +11,14 @@ function renderButtons() {
     }
 }
 //on click event
-$("#buttons").on("click", ".hiButt", function (event) {
+$("#buttons-div").on("click", ".hiButt", function (event) {
     event.preventDefault();
     $("#gifs").empty();
 
     var button = $(this).attr("data-buton")
     var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + button + "&api_key=5atI5zU97rTiZfAstZZ3gXsck2pAvnQr&limit=10"
     console.log(this);
-    $ajax({
+    $.ajax({
         url: queryURL,
         method: "GET"
     }).then(function (response) {
@@ -47,9 +47,34 @@ $("#buttons").on("click", ".hiButt", function (event) {
 })
 
 //function for when submit button is clicked to add a new button to the page
-
+$("#add-image").on("click", function (event) {
+    event.preventDefault();
+    var newButton = $("#image-input").val().trim();
+    topics.push(newButton);
+    $("#image-input").val("");
+    renderButtons();
+});
 
 //new onclick event to animate/pause gif
+$("#gifs").on("click", ".classGif", function (event) {
+    var state = $(this).attr("data-state");
+    var stillURL = $(this).attr("data-still");
+    var animURL = $(this).attr("data-animate");
+
+    console.log(this)
+    if (state === "still") {
+        $(this).attr({
+            "src": animURL,
+            "data-state": "animate"
+        })
+    } else {
+        $(this).attr({
+            "src": stillURL,
+            "data-state": "still"
+        })
+    }
+})
+
 
 //call render function button at the bottom
 
