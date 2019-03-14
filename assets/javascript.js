@@ -49,6 +49,7 @@ $("#buttons-div").on("click", ".hiButt", function (event) {
 //function for when submit button is clicked to add a new button to the page
 $("#add-image").on("click", function (event) {
     event.preventDefault();
+
     var newButton = $("#image-input").val().trim();
     topics.push(newButton);
     $("#image-input").val("");
@@ -57,6 +58,8 @@ $("#add-image").on("click", function (event) {
 
 //new onclick event to animate/pause gif
 $("#gifs").on("click", ".classGif", function (event) {
+    event.preventDefault();
+    
     var state = $(this).attr("data-state");
     var stillURL = $(this).attr("data-still");
     var animURL = $(this).attr("data-animate");
