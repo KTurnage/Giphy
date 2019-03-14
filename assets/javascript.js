@@ -1,4 +1,4 @@
-var topics = ["Maui", "Oahu", "Kauai", "Hawaii", "Molokai", "Lanai", "Niijau", "Kahoolawe"];
+var topics = ["Maui", "O'ahu", "Kaua'i", "Hawai'i", "Moloka'i", "Lana'i", "Ni'ijau", "Kaho'olawe"];
 
 //function for rendering buttons
 function renderButtons() {
@@ -59,7 +59,7 @@ $("#add-image").on("click", function (event) {
 //new onclick event to animate/pause gif
 $("#gifs").on("click", ".classGif", function (event) {
     event.preventDefault();
-    
+
     var state = $(this).attr("data-state");
     var stillURL = $(this).attr("data-still");
     var animURL = $(this).attr("data-animate");
