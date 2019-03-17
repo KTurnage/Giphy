@@ -15,7 +15,8 @@ $("#buttons-div").on("click", ".hiButt", function (event) {
     event.preventDefault();
     $("#gifs").empty();
 
-    var button = $(this).attr("data-buton")
+    var button = $(this).attr("data-buton");
+    console.log("button", button);
     var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + button + "&api_key=5atI5zU97rTiZfAstZZ3gXsck2pAvnQr&limit=10"
     console.log(this);
     $.ajax({
@@ -26,22 +27,22 @@ $("#buttons-div").on("click", ".hiButt", function (event) {
         var results = response.data
         for (var i = 0; i < results.length; i++) {
             var imageURL = results[i].images.fixed_height_still.url;
-            var islandImage = $("img");
-            // var gifDiv = $("<div>")
+            var gifDiv = $("<div>")
             // gifDiv.addClass("gifDiv")
-
-            islandImage.attr({
-                "src": imageURL,
-                "alt": "island-Image",
-                "data-state": "still",
-                "data-still": results[i].images.fixed_height_still.url,
-                "data-animate": results[i].images.fixed_height.url
-            });
-            islandImage.addClass("classGif");
             var ratingDisplay = $("<p>").text("Rating: " + results[i].rating);
-            // gifDiv.append(ratingDisplay);
-            // gifDiv.append(islandImage);
-            $("#gifs").append(islandImage);
+            var islandImage = $("<img>");
+
+            islandImage.attr("src", imageURL);
+                // "alt": "island-Image",
+                // "data-state": "still",
+                // "data-still": results[i].images.fixed_height_still.url,
+                // "data-animate": results[i].images.fixed_height.url
+            
+
+            islandImage.addClass("classGif");
+            gifDiv.append(ratingDisplay);
+            gifDiv.append(islandImage);
+            $("#gifs").prepend(islandImage);
         }
     })
 })
