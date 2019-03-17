@@ -22,13 +22,13 @@ $("#buttons-div").on("click", ".hiButt", function (event) {
         url: queryURL,
         method: "GET"
     }).then(function (response) {
-        console.log(response)
+        console.log(response.data)
         var results = response.data
         for (var i = 0; i < results.length; i++) {
             var imageURL = results[i].images.fixed_height_still.url;
-            var islandImage = $("<img");
-            var gifDiv = $("<div>")
-            gifDiv.addClass("gifDiv")
+            var islandImage = $("img");
+            // var gifDiv = $("<div>")
+            // gifDiv.addClass("gifDiv")
 
             islandImage.attr({
                 "src": imageURL,
@@ -39,9 +39,9 @@ $("#buttons-div").on("click", ".hiButt", function (event) {
             });
             islandImage.addClass("classGif");
             var ratingDisplay = $("<p>").text("Rating: " + results[i].rating);
-            gifDiv.append(ratingDisplay);
-            gifDiv.append(islandImage);
-            $("#gifs").append(gifDiv)
+            // gifDiv.append(ratingDisplay);
+            // gifDiv.append(islandImage);
+            $("#gifs").append(islandImage);
         }
     })
 })
