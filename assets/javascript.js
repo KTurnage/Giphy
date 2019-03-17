@@ -15,7 +15,7 @@ $("#buttons-div").on("click", ".hiButt", function (event) {
     event.preventDefault();
     $("#gifs").empty();
 
-    var button = $(this).attr("data-buton");
+    var button = $(this).attr("data-button");
     console.log("button", button);
     var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + button + "&api_key=5atI5zU97rTiZfAstZZ3gXsck2pAvnQr&limit=10"
     console.log(this);
@@ -63,12 +63,12 @@ $("#gifs").on("click", ".classGif", function (event) {
 
     var state = $(this).attr("data-state");
     var stillURL = $(this).attr("data-still");
-    var animURL = $(this).attr("data-animate");
+    var imageURL = $(this).attr("data-animate");
 
     console.log(this)
     if (state === "still") {
         $(this).attr({
-            "src": animURL,
+            "src": imageURL,
             "data-state": "animate"
         })
     } else {
