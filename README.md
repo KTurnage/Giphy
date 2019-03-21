@@ -3,6 +3,7 @@ Click on a button to see a variety of giph images. Click to animate. Click to st
 
 ## Getting Started
 [live link](https://kturnage.github.io/Giphy/)
+
 [link to repository](https://github.com/KTurnage/Giphy/)
 
 ### Prerequisites
