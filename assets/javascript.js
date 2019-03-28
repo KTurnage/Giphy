@@ -36,8 +36,8 @@ $("#buttons-div").on("click", ".hiButt", function (event) {
             islandImage.attr("data-still", results[i].images.fixed_height_still.url);
             islandImage.attr("data-animate", results[i].images.fixed_height.url);
             islandImage.attr("data-state", "still");
-               
-            
+
+
 
             islandImage.addClass("classGif");
             gifDiv.append(ratingDisplay);
