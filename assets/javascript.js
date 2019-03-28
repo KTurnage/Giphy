@@ -17,7 +17,7 @@ $("#buttons-div").on("click", ".hiButt", function (event) {
 
     var button = $(this).attr("data-button");
     console.log("button", button);
-    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + button + "&api_key=5atI5zU97rTiZfAstZZ3gXsck2pAvnQr&limit=10"
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + button + "&api_key=5atI5zU97rTiZfAstZZ3gXsck2pAvnQr&limit=10"
     console.log(this);
     $.ajax({
         url: queryURL,
@@ -33,10 +33,10 @@ $("#buttons-div").on("click", ".hiButt", function (event) {
             var islandImage = $("<img>");
 
             islandImage.attr("src", imageURL);
-                // "alt": "island-Image",
-                // "data-state": "still",
-                // "data-still": results[i].images.fixed_height_still.url,
-                // "data-animate": results[i].images.fixed_height.url
+            islandImage.attr("data-still", results[i].images.fixed_height_still.url);
+            islandImage.attr("data-animate", results[i].images.fixed_height.url);
+            islandImage.attr("data-state", "still");
+               
             
 
             islandImage.addClass("classGif");
